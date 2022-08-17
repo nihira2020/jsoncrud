@@ -1,0 +1,39 @@
+<form class="example-form" [formGroup]="companyform" (ngSubmit)="SaveCompany()">
+    <mat-card>
+    <mat-card-content>
+    
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="ID" formControlName="id" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" >
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Employee Count</mat-label>
+        <input matInput placeholder="Employee Count" formControlName="empcount" >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Revenue</mat-label>
+        <input matInput placeholder="Revenue" formControlName="revenue" >
+      </mat-form-field>
+
+  
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Address</mat-label>
+      <textarea matInput placeholder="Address" formControlName="address"></textarea>
+    </mat-form-field>
+    <section class="example-section">
+        <mat-checkbox class="example-margin" formControlName="isactive">Is Active</mat-checkbox>
+    </section>
+</mat-card-content>
+    <mat-card-footer>
+    <div class="example-button-row" style="margin: 2px">
+        <button mat-raised-button color="primary">Save</button> | <a (click)="closepopup()" mat-raised-button color="accent">Close</a>
+    </div>
+</mat-card-footer>
+</mat-card>
+  </form>
