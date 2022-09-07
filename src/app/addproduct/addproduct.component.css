@@ -1,0 +1,15 @@
+
+.mat-form-field{
+    width: 48%;
+    padding: 1%;
+}
+.form-control{
+    width: 150px;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+td{
+    padding: 3px;
+    border: 1px solid gray;
+}

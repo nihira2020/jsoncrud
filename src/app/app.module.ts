@@ -9,12 +9,16 @@ import { CompanyComponent } from './company/company.component';
 import { PopupComponent } from './popup/popup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductComponent } from './product/product.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CompanyComponent,
-    PopupComponent
+    PopupComponent,
+    ProductComponent,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,

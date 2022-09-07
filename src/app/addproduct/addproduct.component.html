@@ -1,0 +1,94 @@
+<form class="example-form" [formGroup]="productform" (ngSubmit)="SaveProduct()">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Code</mat-label>
+        <input matInput placeholder="Code" formControlName="code">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput placeholder="price" formControlName="price">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+            <mat-option *ngFor="let item of categorydata" [value]="item.id">{{item.name}}
+
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" style="width: 98%" appearance="fill">
+        <mat-label>Remarks</mat-label>
+        <textarea matInput placeholder="remarks" formControlName="remarks"></textarea>
+
+    </mat-form-field>
+
+
+    <h3>Varinat Info</h3>
+    <div>
+        <table formArrayName="variants" style="margin: 2%;width: 96%;"
+            class="mat-table cdk-table mat-elevation-z8 table-bordered">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Color</td>
+                    <td>Size</td>
+                    <td>Remarks</td>
+                    <td>Price</td>
+                    <td>Isactive</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of variants.controls;let i=index" [formGroupName]="i">
+                    <td>
+                        <input class="form-control" formControlName="id">
+                    </td>
+                    <td>
+                        <select class="form-control" formControlName="colorId">
+             <option *ngFor="let item of colordata" [value]="item.id">{{item.varintName}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control" formControlName="sizeId">
+                            <option *ngFor="let item of sizedata" [value]="item.id">{{item.varintName}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea class="form-control" formControlName="remarks"></textarea>
+                    </td>
+                    <td>
+                        <input class="form-control" formControlName="price">
+                    </td>
+                    <td>
+                        <input type="checkbox" formControlName="isactive">
+                    </td>
+                    <td>
+                        <a mat-raised-button color="accent" (click)="Removevariant(i)">Remove</a>
+                    </td>
+
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="7">
+                        <a mat-raised-button color="primary" (click)="AddVariants()">Add New (+)</a>
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+
+    <div class="example-button-row" style="padding: 1%">
+        <button mat-raised-button color="primary">Save</button> |
+        <a mat-raised-button color="accent" (click)="redirecttolist()">Cancel</a>
+    </div>
+
+</form>
